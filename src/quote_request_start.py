@@ -1,7 +1,7 @@
 from quote_request.quote_request_queue import RequestQuoteQueue
 from quote_request.quote_request_producer import QuoteRequestProducer   
 
-servicebus_conn_str = ""
+
 input_queue_name  = "sc-puc-entrypoint"
 
 
