@@ -3,8 +3,8 @@ from typing import Literal
 
 
 class CotacaoRequest(BaseModel):
-    numeroPedido: str
-    valor: str  # Mantemos como string pois pode vir como "10.00"
+    numeroPedido: int
+    valor: float
     moedaCotacao: str
     dataPedido: str  # YYYY-MM-DD
     tipo_boletim: Literal["INTERMEDIÁRIO", "ABERTURA", "FECHAMENTO PTAX"]
