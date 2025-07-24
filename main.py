@@ -1,15 +1,16 @@
-import json
+# main.py
+from src.queue.consumer import Consumer
+from src.queue.producer import Producer
 from src.message_handler import MessageHandler
 
 def main():
-    with open("queue_request.json", "r", encoding="utf-8") as f:
-        input_message = json.load(f)
-
+    consumer = Consumer()
+    producer = Producer()
     handler = MessageHandler()
-    output_message = handler.process(input_message)
 
-    with open("queue_response.json", "w", encoding="utf-8") as f:
-        json.dump(output_message, f, indent=4, ensure_ascii=False)
+    input_message = consumer.consume()
+    output_message = handler.process(input_message)
+    producer.produce(output_message)
 
     print("[OK] Mensagem processada com sucesso.")
 

@@ -1,6 +1,6 @@
 import json
 
-def enviar_resposta(mensagem):
-    print(f"Resposta final: {mensagem}")
-    with open("queue_response.json", "w") as f:
-        json.dump(mensagem, f, indent=2)
+class Producer:
+    def produce(self, message: dict) -> None:
+        with open("queue_response.json", "w", encoding="utf-8") as f:
+            json.dump(message, f, indent=2)
